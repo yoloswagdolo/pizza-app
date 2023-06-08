@@ -1,0 +1,38 @@
+.label,
+.button{
+	text-transform:uppercase;
+}
+
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.input{
+	margin-bottom:24px;
+}
+.label,
+.input,
+.button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.input,
+.button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+
+.button{
+	background:#1161ee;
+}
+
+.message-banner {
+    text-align: center;
+    color:  green;
+    background: #fff;
+}

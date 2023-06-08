@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Getting Started with Pizza App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## About this project
+This project creates a lightweight pizza ordering application with a login screen. 
+It allows authenticated users to configure a pizza order, delete submitted pizza orders, and filter pizza orders by its existing fields.
 
 ## Available Scripts
 

@@ -7,6 +7,7 @@ import './Login.css'
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+    const [error, setError] = useState("");
 
     const LoginSchema = Yup.object().shape({
         username: Yup.string()
@@ -20,6 +21,8 @@ const Login = (props) => {
       const navigate = useNavigate();
 
     const onSubmit = async (values) => {
+        //Reset error on resubmit
+        setError("");
 
         try {
             const response = await axios.post(
@@ -35,8 +38,8 @@ const Login = (props) => {
             })
             navigate("/");
         } catch (err) {
-            //check if we get error response from axios otherwise set error message
-            (err.response && err.response.data)? setError(err.response.data.message): setError(err.message);
+            //check if we get error response from axios otherwise set generic login error message
+            (err.response && err.response.data)? setError("Login Failure"): setError(err.message);
             console.log(err);
         }
     }
@@ -46,7 +49,7 @@ const Login = (props) => {
     return (
         <div className="login-wrap">
             <div className="login-html">
-                <h1>Sign to Order Pizza</h1>
+                <h1 className="login-header">Sign to Order Pizza</h1>
                 <Formik className= ""
                 initialValues= {{
                     username: "",
@@ -68,9 +71,10 @@ const Login = (props) => {
             )}
                     
                 </Formik>
+                {/* Display Axios Error Message if received */}
+                {error.length>0? <p>{error}</p>:null}
             </div>
         </div>
-
     )
 }
 
